@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int pilih, penumpang, harga, bayar, total;
+    char lagi;
+
+    total = 0;
+
+    do {
+        cout << "=== TIKET BUS ===\n";
+        cout << "1. Malang - Surabaya : Rp 35000\n";
+        cout << "2. Malang - Pasuruan : Rp 20000\n";
+        cout << "3. Malang - Jombang  : Rp 25000\n";
+        cout << "Tekan (1/2/3)        : ";
+        cin >> pilih;
+
+        cout << "Jumlah penumpang     : ";
+        cin >> penumpang;
+
+        if (pilih == 1) {
+            harga = 35000;
+        } else if (pilih == 2) {
+            harga = 20000;
+        } else if (pilih == 3) {
+            harga = 25000;
+        } else {
+            harga = 0;
+            cout << "Pilihan tidak ada!\n";
+        }
+
+        bayar = harga * penumpang;
+        total = total + bayar;
+
+        cout << "Harga tiket          : Rp " << bayar << "\n";
+
+        cout << "Pesan lagi? (y/t)    : ";
+        cin >> lagi;
+        cout << "\n";
+    } while (lagi == 'y');
+
+    cout << "Total bayar : Rp " << total << "\n";
+
+    return 0;
+}
