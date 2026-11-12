@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    char nama[100][50];
+    char sekolah[100][50];
+    char lagi;
+    int jumlah = 0;
+
+    do {
+        cout << "Masukkan nama    : ";
+        cin >> nama[jumlah];
+
+        cout << "Masukkan sekolah : ";
+        cin >> sekolah[jumlah];
+
+        jumlah++;
+
+        cout << "Input lagi? (y/t) : ";
+        cin >> lagi;
+    } while (lagi == 'y');
+
+    cout << "\nData yang dimasukkan:\n";
+    for (int i = 0; i < jumlah; i++) {
+        cout << i + 1 << ". " << nama[i] << " - " << sekolah[i] << "\n";
+    }
+
+    return 0;
+}
