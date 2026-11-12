@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int pilihan, jumlah, total = 0;
+    char lanjut;
+
+    cout << "========================================" << (char)10;
+    cout << "       PROGRAM KASIR WARUNG MAKAN       " << (char)10;
+    cout << "========================================" << (char)10;
+    cout << "1. Soto  - Rp 15.000" << (char)10;
+    cout << "2. Rawon - Rp 20.000" << (char)10;
+    cout << "----------------------------------------" << (char)10;
+
+    do {
+        cout << "Pilih menu (1/2): ";
+        cin >> pilihan;
+
+        if (pilihan == 1 || pilihan == 2) {
+            cout << "Masukkan jumlah porsi: ";
+            cin >> jumlah;
+
+            if (pilihan == 1) {
+                total += 15000 * jumlah;
+                cout << "-> Ditambahkan " << jumlah << " porsi Soto." << (char)10;
+            } else if (pilihan == 2) {
+                total += 20000 * jumlah;
+                cout << "-> Ditambahkan " << jumlah << " porsi Rawon." << (char)10;
+            }
+        } else {
+            cout << "Pilihan tidak valid!" << (char)10;
+        }
+
+        cout << "Ingin menambah pesanan lain? (y/t): ";
+        cin >> lanjut;
+        cout << (char)10;
+
+    } while (lanjut == 'y' || lanjut == 'Y');
+
+    cout << "========================================" << (char)10;
+    cout << "TOTAL YANG HARUS DIBAYAR: Rp " << total << (char)10;
+    cout << "========================================" << (char)10;
+    cout << "Terima kasih atas kunjungan Anda!" << (char)10;
+
+    return 0;
+}
