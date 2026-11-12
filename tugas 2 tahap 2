@@ -1,0 +1,73 @@
+#include <iostream>
+using namespace std;
+
+// Fungsi untuk menampilkan daftar menu
+void tampilkanMenu() {
+    cout << "========================================" << (char)10;
+    cout << "       PROGRAM KASIR WARUNG MAKAN       " << (char)10;
+    cout << "========================================" << (char)10;
+    cout << "--- MAKANAN ---" << (char)10;
+    cout << "1. Soto  - Rp 15.000" << (char)10;
+    cout << "2. Rawon - Rp 20.000" << (char)10;
+    cout << "3. Pecel - Rp 10.000" << (char)10;
+    cout << "--- MINUMAN ---" << (char)10;
+    cout << "4. Teh   - Rp 3.000" << (char)10;
+    cout << "5. Kopi  - Rp 5.000" << (char)10;
+    cout << "----------------------------------------" << (char)10;
+}
+
+// Fungsi untuk menghitung harga berdasarkan pilihan menu dan jumlah
+int hitungSubtotal(int pilihan, int jumlah) {
+    int harga = 0;
+    if (pilihan == 1) {
+        harga = 15000;
+        cout << "-> Ditambahkan " << jumlah << " porsi Soto." << (char)10;
+    } else if (pilihan == 2) {
+        harga = 20000;
+        cout << "-> Ditambahkan " << jumlah << " porsi Rawon." << (char)10;
+    } else if (pilihan == 3) {
+        harga = 10000;
+        cout << "-> Ditambahkan " << jumlah << " porsi Pecel." << (char)10;
+    } else if (pilihan == 4) {
+        harga = 3000;
+        cout << "-> Ditambahkan " << jumlah << " gelas Teh." << (char)10;
+    } else if (pilihan == 5) {
+        harga = 5000;
+        cout << "-> Ditambahkan " << jumlah << " cangkir Kopi." << (char)10;
+    } else {
+        cout << "Pilihan tidak valid!" << (char)10;
+    }
+    return harga * jumlah;
+}
+
+int main() {
+    int pilihan, jumlah, total = 0;
+    char lanjut;
+
+    tampilkanMenu();
+
+    do {
+        cout << "Pilih menu (1-5): ";
+        cin >> pilihan;
+
+        if (pilihan >= 1 && pilihan <= 5) {
+            cout << "Masukkan jumlah: ";
+            cin >> jumlah;
+            total += hitungSubtotal(pilihan, jumlah);
+        } else {
+            cout << "Pilihan tidak valid!" << (char)10;
+        }
+
+        cout << "Ingin menambah pesanan lain? (y/t): ";
+        cin >> lanjut;
+        cout << (char)10;
+
+    } while (lanjut == 'y' || lanjut == 'Y');
+
+    cout << "========================================" << (char)10;
+    cout << "TOTAL YANG HARUS DIBAYAR: Rp " << total << (char)10;
+    cout << "========================================" << (char)10;
+    cout << "Terima kasih atas kunjungan Anda!" << (char)10;
+
+    return 0;
+}
